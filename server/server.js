@@ -17,6 +17,7 @@ app.use(session({
 }))
 
 app.post('/auth/login', ctrl.login)
+app.post('/auth/register', ctrl.register)
 
 
 

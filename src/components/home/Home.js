@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
+import './Home.css';
 
 class Home extends Component {
     constructor(props){
@@ -33,20 +35,20 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className='form-container'>
                 <form className='login-form'>
                     <div>
                         <label>Email:</label>
                         <br />
-                        <input type='email' onChange={(e) => this.updateEmail(e)} />
+                        <input className='form-input' placeholder='Email' type='email' onChange={(e) => this.updateEmail(e)} />
                     </div>
                     <div>
-                        <label>password:</label>
+                        <label>Password:</label>
                         <br />
-                        <input type='password' onChange={(e) => this.updatePass(e)} />
+                        <input className='form-input' placeholder='Password' type='password' onChange={(e) => this.updatePass(e)} />
                     </div>
-                    <button type='button' onChange={() => this.login()}>Login</button>
-                    <button type='button' onChange={() => this.register()}>Register</button>
+                    <button className='form-BTN' type='button' onClick={() => this.login()}>Login</button>
+                    <Link to='/register'><button className='form-BTN'>Register</button></Link>
                 </form>
             </div>
         );

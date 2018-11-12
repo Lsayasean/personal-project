@@ -1,4 +1,4 @@
-create table profile(
+create table user_profile(
 profile_id serial primary key,
 name varchar(120),
 profile_pass varchar(40),
