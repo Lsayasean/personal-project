@@ -30,8 +30,8 @@ class Home extends Component {
             email: email,
             password: password
         })
-        console.log(res)
-    }
+        console.log(res.data)
+    } 
 
     render() {
         return (

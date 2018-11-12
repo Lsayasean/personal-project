@@ -1,2 +1,2 @@
-select * from customer
-where cust_email = $1;
+select * from user_profile
+where profile_email = $1;

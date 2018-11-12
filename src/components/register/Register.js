@@ -37,6 +37,7 @@ class Register extends Component {
         if (!email || !password || !name || !bio) {
             return alert('Please fill out all fields.')
         }
+        console.log(email, password, name, bio)
         let res = await axios.post('/auth/register', {
             email,
             password,
@@ -44,6 +45,7 @@ class Register extends Component {
             bio
 
         })
+        console.log(res)
         if(res.data.message === 'Logged in.'){
             this.props.history.push('/profile')
         }

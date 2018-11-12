@@ -20,5 +20,8 @@ app.post('/auth/login', ctrl.login)
 app.post('/auth/register', ctrl.register)
 
 
+app.get('/user_profile', ctrl.getUser)
+
+
 
 app.listen(SERVER_PORT, () => console.log(`Welcome ${SERVER_PORT}`))
