@@ -49,6 +49,9 @@ class Register extends Component {
         if(res.data.message === 'Logged in.'){
             this.props.history.push('/profile')
         }
+        if(res.data.message === 'Email already in use'){
+            alert('Email already in use')
+        }
     }
     render() {
         return (

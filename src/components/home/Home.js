@@ -31,6 +31,10 @@ class Home extends Component {
             password: password
         })
         console.log(res.data)
+        if(res.data.message === 'Logged in.'){
+            this.props.history.push('/profile')
+        }
+
     } 
 
     render() {

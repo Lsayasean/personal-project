@@ -43,5 +43,9 @@ module.exports = {
         } else {
             res.sendStatus(401)
         }
-    } 
+    },
+    logout(req, res) {
+        req.session.destroy();
+        res.redirect('http://localhost:3000')
+    }
 }

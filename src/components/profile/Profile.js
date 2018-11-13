@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {connect} from 'react-redux';
-import {userUpdate} from './../../ducks/reducer'
+import { connect } from 'react-redux';
+import { userUpdate } from './../../ducks/reducer'
+import Nav from './../nav/Nav'
 import './profile.css'
 
 class Profile extends Component {
@@ -13,37 +14,36 @@ class Profile extends Component {
         }
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
         let res = await axios.get('/user_profile')
         this.props.userUpdate(res.data)
     }
 
     render() {
+        console.log(this.props.user)
         return (
-            <div className='profile-container'>
-                <div className='profile-header'>
-                    <p>message icon here</p>
-                    <buton>Logout</buton>
-                </div>
-                <div>profile picture</div>
-                <div>
-                    name || bio
+            <div>
+                <Nav />
+                <div className='profile-container'>
+                    <div>profile picture</div>
+                    <div>
+                        {this.props.user.name} || {this.props.user.bio}
                         <button className='profile-btn-edit'>edit button</button>
+                    </div>
                 </div>
-                <div>
-                    <h2>Your games</h2>
+                <div className='profile-games-list'>
                     <button className='profile-btn'>find games</button>
-                    <div>games list</div>
+                    <h2>Your games</h2>
                 </div>
             </div>
         );
     }
 }
 
-function stateToProps(state){
+function stateToProps(state) {
     return {
         user: state.user
     }
 }
 
-export default connect(stateToProps, {userUpdate})(Profile);
+export default connect(stateToProps, { userUpdate })(Profile);
