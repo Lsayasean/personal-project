@@ -9,9 +9,11 @@ module.exports = {
             let results = bcrypt.compareSync(password, foundUser.profile_pass);
             if (results) {
                 req.session.user = {
+                    id: foundUser.profile_id,
                     name: foundUser.name,
                     email: foundUser.profile_email,
-                    bio: foundUser.profile_bio
+                    bio: foundUser.profile_bio,
+                    image: foundUser.profile_image
                 }
                 res.status(200).send({ message: 'Logged in.' })
             } else {
@@ -22,18 +24,20 @@ module.exports = {
         }
     },
     async register(req, res) {
-        let { email, password , name , bio} = req.body;
+        let { email, password , name , bio, image} = req.body;
         let db = req.app.get('db')
         let [foundUser] = await db.find_profile(email);
         if (foundUser) return res.status(200).send({ message: 'Email already in use' })
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(password, salt)
         console.log(hash.length)
-        let [createUser] = await db.create_user([name, hash, email, bio])
+        let [createUser] = await db.create_user([name, hash, email, bio, image])
         req.session.user = {
+            id: createUser.profile_id,
             name: createUser.name,
             email: createUser.profile_email,
-            bio: createUser.profile_bio
+            bio: createUser.profile_bio,
+            image: createUser.profile_image
         }
         res.status(200).send({message: 'Logged in.'})
     },
@@ -47,5 +51,32 @@ module.exports = {
     logout(req, res) {
         req.session.destroy();
         res.redirect('http://localhost:3000')
+    },
+    async getGames(req, res) {
+        let db = req.app.get('db')
+       let results =  await db.game_list()
+       res.status(200).send(results)
+    },
+    async addGames(req, res) {
+        let db = req.app.get('db')
+        let gameId = req.params.id
+        let userId = req.session.user.id;
+        let results = await db.add_game_list(gameId, userId)
+        res.status(200).send(results)
+
+    },
+    async myGames(req, res) {
+        let db = req.app.get('db')
+        let id = req.params.id
+        let results = await db.owned_list(id)
+        res.status(200).send(results)
+    },
+    async deleteGame(req, res) {
+        let db = req.app.get('db')
+        let id = req.params.id
+        let userId = req.session.user.id
+        db.delete_game(id)
+        let results = await db.owned_list(userId)
+        res.status(200).send(results)
     }
 }

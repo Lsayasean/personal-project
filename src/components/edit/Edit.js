@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Message extends Component {
+class Edit extends Component {
     render() {
         return (
             <div>
-                messages goes here!
+                something goes here
             </div>
         );
     }
 }
 
-export default Message;
+export default Edit;

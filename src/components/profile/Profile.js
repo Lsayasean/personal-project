@@ -1,39 +1,53 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { userUpdate } from './../../ducks/reducer'
-import Nav from './../nav/Nav'
+import { userUpdate, updateOwnList } from './../../ducks/reducer'
 import './profile.css'
 
 class Profile extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            games: {}
-        }
-    }
 
     async componentDidMount() {
         let res = await axios.get('/user_profile')
         this.props.userUpdate(res.data)
+        let res2 = await axios.get(`/my-games/${this.props.user.id}`)
+        this.props.updateOwnList(res2.data)
+        console.log('games list', res2.data)
+    }
+
+    async removeGame(id){
+        let res = await axios.delete(`/delete/${id}`)
+        this.props.updateOwnList(res.data)
+
     }
 
     render() {
-        console.log(this.props.user)
+        let myList = this.props.userGames.map(ele => {
+            return (
+                <div key={ele.owned_id} className='game-list'>
+                    <h1 className='game-title'>{ele.game_name}</h1>
+                    <div className='games-image'>
+                        <img className='img' src={ele.game_pic} alt='game pic' />
+                    </div>
+                    <button className='add-btn' 
+                   onClick={() => this.removeGame(ele.owned_id)}
+                   >remove</button>
+                </div>
+            )
+        })
         return (
-            <div>
-                <Nav />
-                <div className='profile-container'>
-                    <div>profile picture</div>
-                    <div>
-                        {this.props.user.name} || {this.props.user.bio}
-                        <button className='profile-btn-edit'>edit button</button>
+            <div className='profile-container'>
+                <div>
+                    <img className='profile-pic' src={this.props.user.image} alt='profile pic' />
+                    <div className='profile-info'>
+                        <div className='profile-name'>{this.props.user.name}</div>
+                        <div className='profile-bio'>{this.props.user.bio}</div>
                     </div>
                 </div>
                 <div className='profile-games-list'>
-                    <button className='profile-btn'>find games</button>
                     <h2>Your games</h2>
+                    <div>
+                        {myList}
+                    </div>
                 </div>
             </div>
         );
@@ -42,8 +56,15 @@ class Profile extends Component {
 
 function stateToProps(state) {
     return {
-        user: state.user
+        user: state.user,
+        userGames: state.userGames
+
     }
 }
 
-export default connect(stateToProps, { userUpdate })(Profile);
+const dispatchToProps = {
+    userUpdate,
+    updateOwnList
+}
+
+export default connect(stateToProps, dispatchToProps)(Profile);

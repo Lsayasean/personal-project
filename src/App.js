@@ -9,16 +9,18 @@ import './App.css';
 
 class App extends Component {
   render() {
-    console.log('location',this.props.location)
     return (
       <Provider store={store}>
         <HashRouter>
           <div>
-            <Nav />
+            <div>
+              <Nav />
+            </div>
+            <div>
+              {routes}
+            </div>
           </div>
-          <div>
-          {routes}
-          </div>
+
         </HashRouter>
       </Provider>
     );

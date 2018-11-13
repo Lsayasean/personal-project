@@ -4,7 +4,7 @@
     font-size: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
 }
 
@@ -24,4 +24,32 @@
     height: 50px;
     font-size: 20px;
     border-radius: 40%;
+}
+
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid black;
+    object-fit: cover;
+    margin-top: 25px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-name {
+    font-size: 60px;
+}
+.profile-bio {
+    font-size: 40px;
+}
+
+.profile-games-list {
+    margin-top: 30px;
 }
