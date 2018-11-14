@@ -39,7 +39,10 @@ app.get('/logout', ctrl.logout)
 app.get('/games-list', ctrl.getGames)
 app.get('/add-games/:id', ctrl.addGames)
 app.get('/my-games/:id', ctrl.myGames)
+app.get('/get-friends', ctrl.getMatch)
 
 app.delete('/delete/:id', ctrl.deleteGame)
+
+app.put('/edit-profile', ctrl.editProfile)
 
 app.listen(SERVER_PORT, () => console.log(`Welcome ${SERVER_PORT}`))

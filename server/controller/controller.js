@@ -78,5 +78,19 @@ module.exports = {
         db.delete_game(id)
         let results = await db.owned_list(userId)
         res.status(200).send(results)
+    },
+    async editProfile(req, res) {
+        let {name, image, bio} = req.body;
+        let db = req.app.get('db')
+        let userId = req.session.user.id;
+        let results = db.edit_user_info([name, bio, image, userId])
+        res.status(200).send(results)
+    },
+    async getMatch(req, res) {
+        let db = req.app.get('db')
+        let userId = req.session.user.id
+        let results = await db.match_people(userId)
+        res.status(200).send(results)
+
     }
 }

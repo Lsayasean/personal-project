@@ -42,7 +42,6 @@ class Register extends Component {
         if (!email || !password || !name || !bio || !image) {
             return alert('Please fill out all fields.')
         }
-        console.log(email, password, name, bio, image)
         let res = await axios.post('/auth/register', {
             email,
             password,

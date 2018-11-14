@@ -14,13 +14,14 @@ class Profile extends Component {
         console.log('games list', res2.data)
     }
 
-    async removeGame(id){
+    async removeGame(id) {
         let res = await axios.delete(`/delete/${id}`)
         this.props.updateOwnList(res.data)
 
     }
 
     render() {
+        console.log(this.props.user)
         let myList = this.props.userGames.map(ele => {
             return (
                 <div key={ele.owned_id} className='game-list'>
@@ -28,24 +29,24 @@ class Profile extends Component {
                     <div className='games-image'>
                         <img className='img' src={ele.game_pic} alt='game pic' />
                     </div>
-                    <button className='add-btn' 
-                   onClick={() => this.removeGame(ele.owned_id)}
-                   >remove</button>
+                    <button className='add-btn'
+                        onClick={() => this.removeGame(ele.owned_id)}
+                    >remove</button>
                 </div>
             )
         })
         return (
             <div className='profile-container'>
-                <div>
+                <div className='profile-image'>
                     <img className='profile-pic' src={this.props.user.image} alt='profile pic' />
-                    <div className='profile-info'>
-                        <div className='profile-name'>{this.props.user.name}</div>
-                        <div className='profile-bio'>{this.props.user.bio}</div>
-                    </div>
+                </div>
+                <div className='profile-info'>
+                    <div className='profile-name'>{this.props.user.name}</div>
+                    <div className='profile-bio'>{this.props.user.bio}</div>
                 </div>
                 <div className='profile-games-list'>
                     <h2>Your games</h2>
-                    <div>
+                    <div className='game-list'>
                         {myList}
                     </div>
                 </div>

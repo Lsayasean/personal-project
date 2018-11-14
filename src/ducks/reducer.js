@@ -1,16 +1,20 @@
 const initialState = {
     user: {},
     games: [],
-    userGames: []
+    userGames: [],
+    match: []
 }
 
 const USER_DATA = "USER_DATA";
 const USER_GAMES = "USER_GAMES";
 const UPDATE_GAME_LIST = "UPDATE_GAME_LIST";
 const MY_GAMES = "MY_GAMES";
+const MATCH = "MATCH";
 
 export default function reducer(state = initialState, action){
     switch(action.type){
+        case MATCH:
+            return {...state, match: action.payload}
         case MY_GAMES:
             return {...state, userGames: action.payload}
         case UPDATE_GAME_LIST:
@@ -48,5 +52,11 @@ export function updateOwnList(own){
     return {
         type: MY_GAMES,
         payload: own
+    }
+}
+export function getMatch(match){
+    return {
+        type: MATCH,
+        payload: match
     }
 }
