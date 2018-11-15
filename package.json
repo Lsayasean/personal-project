@@ -5,6 +5,7 @@
   "proxy": "http://localhost:4000",
   "main": "server/server.js",
   "dependencies": {
+    "@material-ui/core": "^3.5.1",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^6.1.0",

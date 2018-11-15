@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import './Home.css';
+import Button from '@material-ui/core/Button';
 
 class Home extends Component {
     constructor(props){
@@ -51,8 +52,8 @@ class Home extends Component {
                         <br />
                         <input className='form-input' placeholder='Password' type='password' onChange={(e) => this.updatePass(e)} />
                     </div>
-                    <button className='form-BTN' type='button' onClick={() => this.login()}>Login</button>
-                    <Link to='/register'><button className='form-BTN'>Register</button></Link>
+                    <Button variant='outlined' color='primary' className='form-BTN' type='button' onClick={() => this.login()}>Login</Button>
+                    <Link to='/register'><Button variant='outlined' color='primary' className='form-BTN'>Register</Button></Link>
                 </form>
             </div>
         );

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { userUpdate, updateOwnList } from './../../ducks/reducer'
 import './profile.css'
+import Button from '@material-ui/core/Button';
 
 class Profile extends Component {
 
@@ -29,23 +30,26 @@ class Profile extends Component {
                     <div className='games-image'>
                         <img className='img' src={ele.game_pic} alt='game pic' />
                     </div>
-                    <button className='add-btn'
+                    <Button className='add-btn'
+                        variant="outlined" color="secondary"
                         onClick={() => this.removeGame(ele.owned_id)}
-                    >remove</button>
+                    >remove</Button>
                 </div>
             )
         })
         return (
             <div className='profile-container'>
-                <div className='profile-image'>
+                <div className='profile-image' style={{
+                    // backgroundImage : `url(${this.props.user.backgroundImage})`
+                }}>
                     <img className='profile-pic' src={this.props.user.image} alt='profile pic' />
                 </div>
                 <div className='profile-info'>
-                    <div className='profile-name'>{this.props.user.name}</div>
-                    <div className='profile-bio'>{this.props.user.bio}</div>
+                    <div className='profile-name'><h1>{this.props.user.name}</h1></div>
+                    <div className='profile-bio'><h3>{this.props.user.bio}</h3></div>
                 </div>
                 <div className='profile-games-list'>
-                    <h2>Your games</h2>
+                    <h2 className='h2-game-list'>Your Games List:</h2>
                     <div className='game-list'>
                         {myList}
                     </div>

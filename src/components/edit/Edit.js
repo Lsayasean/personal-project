@@ -11,6 +11,7 @@ class Edit extends Component {
         this.state = {
             name: '',
             image: '',
+            background: '',
             bio: ''
 
         }
@@ -26,18 +27,22 @@ class Edit extends Component {
     updateBio(e){
         this.setState({bio: e.target.value})
     }
+    updateBackground(e){
+        this.setState({background: e.target.value})
+    }
 
 
     async updateInfo(){
-        let {name, bio, image} = this.state;
+        let {name, bio, image, background} = this.state;
         console.log(image.length)
-        if (!name || !bio || !image) {
+        if (!name || !bio || !image || !background) {
             return alert('Please fill out all fields.')
         }
         let res = await axios.put('/edit-profile', {
             name,
             image,
-            bio
+            bio,
+            background
         })
         this.props.userUpdate(res.data)
         this.props.history.push('/profile')
@@ -55,9 +60,14 @@ class Edit extends Component {
                         <input className='edit-input' placeholder='name' type='text' onChange={(e) => this.updateName(e)} />
                     </div>
                     <div>
-                        <label>Image:</label>
+                        <label>Profile-Image:</label>
                         <br />
-                        <input className='edit-input' placeholder='image' type='text' onChange={(e) => this.updateImage(e)} />
+                        <input className='edit-input' placeholder='image-URL' type='text' onChange={(e) => this.updateImage(e)} />
+                    </div>
+                    <div>
+                        <label>Background:</label>
+                        <br />
+                        <input className='edit-input' placeholder='background-URL' type='text' onChange={(e) => this.updateBackground(e)} />
                     </div>
                     <div>
                         <label>Bio:</label>

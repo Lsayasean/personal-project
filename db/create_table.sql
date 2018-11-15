@@ -4,7 +4,8 @@ name varchar(120),
 profile_pass varchar(40),
 profile_email varchar(80),
 profile_bio varchar(180),
-profile_image varchar(500)
+profile_image varchar(500),
+background_image varchar(500)
 )
 
 

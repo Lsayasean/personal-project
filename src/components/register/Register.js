@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import './register.css';
 
 class Register extends Component {
@@ -12,7 +13,8 @@ class Register extends Component {
             email: '',
             password: '',
             image: '',
-            bio: ''
+            bio: '',
+            background: ''
         }
     }
 
@@ -36,10 +38,14 @@ class Register extends Component {
         this.setState({bio: e.target.value})
     }
 
+    updateBackground(e){
+        this.setState({background: e.target.value})
+    }
+
 
     async register() {
-        let { email, password, name, bio, image } = this.state;
-        if (!email || !password || !name || !bio || !image) {
+        let { email, password, name, bio, image, background } = this.state;
+        if (!email || !password || !name || !bio || !image || !background) {
             return alert('Please fill out all fields.')
         }
         let res = await axios.post('/auth/register', {
@@ -47,7 +53,8 @@ class Register extends Component {
             password,
             name,
             image,
-            bio
+            bio,
+            background
 
         })
         console.log(res)
@@ -68,9 +75,14 @@ class Register extends Component {
                         <input className='form-input' placeholder='name' type='text' onChange={(e) => this.updateName(e)} />
                     </div>
                     <div>
-                        <label>Image:</label>
+                        <label>Profiel-Image:</label>
                         <br />
-                        <input className='form-input' placeholder='image' type='text' onChange={(e) => this.updateImage(e)} />
+                        <input className='form-input' placeholder='image-URL' type='text' onChange={(e) => this.updateImage(e)} />
+                    </div>
+                    <div>
+                        <label>Background:</label>
+                        <br />
+                        <input className='form-input' placeholder='background-URL' type='text' onChange={(e) => this.updateBackground(e)} />
                     </div>
                     <div>
                         <label>Email::</label>
@@ -87,8 +99,8 @@ class Register extends Component {
                         <br />
                         <input className='form-input' placeholder='Type of gamer' type='text' onChange={(e) => this.updateBio(e)} />
                     </div>
-                    <button className='form-BTN' type='button' onClick={() => this.register()}>Register</button>
-                    <Link to='/'><button className='form-BTN' type='button'>Back</button></Link>
+                    <Button variant='outlined' color='primary'  className='form-BTN' type='button' onClick={() => this.register()}>Register</Button>
+                    <Link to='/'><Button variant='outlined' color='primary' className='form-BTN' type='button'>Back</Button></Link>
                 </form>
             </div>
         );

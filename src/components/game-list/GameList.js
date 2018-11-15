@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { gameList, updateGameList } from './../../ducks/reducer';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 import './gameList.css'
 
 class GameList extends Component {
@@ -23,9 +24,10 @@ class GameList extends Component {
                         <img className='img' src={ele.game_pic} alt='game pic' />
                     </div>
                     <h2 className='game-title'>Add games to list</h2>
-                   <button className='add-btn' 
+                   <Button className='add-btn' 
+                   variant="outlined" color="secondary"
                    onClick={() => this.addGame(ele.game_id)}
-                   >add</button>
+                   >add</Button>
                 </div>
             )
         })
