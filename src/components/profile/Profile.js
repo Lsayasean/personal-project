@@ -40,7 +40,7 @@ class Profile extends Component {
         return (
             <div className='profile-container'>
                 <div className='profile-image' style={{
-                    // backgroundImage : `url(${this.props.user.backgroundImage})`
+                    backgroundImage: `url(${this.props.user.backgroundImage})`
                 }}>
                     <img className='profile-pic' src={this.props.user.image} alt='profile pic' />
                 </div>

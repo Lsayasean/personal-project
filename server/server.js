@@ -25,7 +25,8 @@ app.use(async  (req, res, next) => {
             name: results[0].name,
             email: results[0].profile_email,
             bio: results[0].profile_bio,
-            image: results[0].profile_image
+            image: results[0].profile_image,
+            backgroundImage: results[0].background_image
         }
     } next()
 })
