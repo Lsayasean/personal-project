@@ -8,11 +8,11 @@ class Nav extends Component {
         if (path !== '/' && path !== '/register') {
             return (
                 <div className='nav-main'>
-                    <Link to='/message'><i className="far fa-comment-alt "></i></Link>  
-                    <Link to='/profile'><i className="fas fa-home"></i></Link>  
-                    <Link to='/friends'><i className="fas fa-plus"></i></Link>  
-                    <Link to='/games-list'><i className="fas fa-search"></i></Link>  
-                    <Link to='/setting'><i className="fas fa-cog"></i></Link>  
+                    <Link className= 'link' to='/message'><i className="far fa-comment-alt "></i></Link>  
+                    <Link className= 'link' to='/profile'><i className="fas fa-home"></i></Link>  
+                    <Link className= 'link' to='/friends'><i className="fas fa-plus"></i></Link>  
+                    <Link className= 'link' to='/games-list'><i className="fas fa-search"></i></Link>  
+                    <Link className= 'link' to='/setting'><i className="fas fa-cog"></i></Link>  
                 </div>
             )
         } else {

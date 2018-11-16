@@ -32,7 +32,7 @@ module.exports = {
         if (foundUser) return res.status(200).send({ message: 'Email already in use' })
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(password, salt)
-        console.log(hash.length)
+        // console.log(hash.length)
         let [createUser] = await db.create_user([name, hash, email, bio, image, background])
         req.session.user = {
             id: createUser.profile_id,

@@ -1,27 +1,67 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {connect} from 'react-redux';
-import {getMatch} from '../../ducks/reducer';
+import './friends.css';
+import { connect } from 'react-redux';
+import { getMatch } from '../../ducks/reducer';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 
 class Friends extends Component {
-    async componentDidMount(){
+    async componentDidMount() {
         let res = await axios.get('/get-friends')
         this.props.getMatch(res.data)
 
     }
     render() {
         console.log(this.props)
+        let matches = this.props.match.map(ele => {
+            return (
+                <div key = {ele.profile_id} className='friend-display'>
+                    <div className='friend-image' style={{
+                        backgroundImage: `url(${ele.background_image})`
+                    }}>
+                        <img className='friend-pic' src={ele.profile_image} alt='profile pic' />
+                    </div>
+                    <div className='profriendfile-info'>
+                        <div className='friend-name'><h1>{ele.name}</h1></div>
+                        <div className='friend-bio'><h3>{ele.profile_bio}</h3></div>
+                    </div>
+                    <div className='btn-flip'>
+                        <Button
+                            classes={{
+                                label: this.props.classes.label
+                            }}
+                            // labelStyle={{ fontSize: '50px' }}
+                            className='btn-list'
+                            variant="outlined" color="primary"
+                            onClick={() => 'nothing'}
+                        >
+                            Message
+                    </Button>
+                    </div>
+                </div>
+            )
+        })
         return (
-            <div>
+            <div className='main-match'>
+                {matches}
             </div>
         );
     }
 }
 
-function stateToProps(state){
-    return{
+function stateToProps(state) {
+    return {
         match: state.match
     }
 }
 
-export default connect(stateToProps, {getMatch})(Friends);
+const styles = {
+    label: {
+        fontSize: '20px'
+    }
+}
+
+const StyledProfile = withStyles(styles)(Friends)
+
+export default connect(stateToProps, { getMatch })(StyledProfile);

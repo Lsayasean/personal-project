@@ -4,8 +4,18 @@ import { connect } from 'react-redux';
 import { userUpdate, updateOwnList } from './../../ducks/reducer'
 import './profile.css'
 import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import ReactCardFlip from 'react-card-flip';
+
 
 class Profile extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            isFlipped: false
+        }
+    }
 
     async componentDidMount() {
         let res = await axios.get('/user_profile')
@@ -21,6 +31,10 @@ class Profile extends Component {
 
     }
 
+    handleClick() {
+        this.setState({ isFlipped: !this.state.isFlipped });
+    }
+
     render() {
         console.log(this.props.user)
         let myList = this.props.userGames.map(ele => {
@@ -30,31 +44,61 @@ class Profile extends Component {
                     <div className='games-image'>
                         <img className='img' src={ele.game_pic} alt='game pic' />
                     </div>
-                    <Button className='add-btn'
-                        variant="outlined" color="secondary"
-                        onClick={() => this.removeGame(ele.owned_id)}
-                    >remove</Button>
+                    <div className='btn-g'>
+                        <Button className='add-btn'
+                            variant="outlined" color="secondary"
+                            onClick={() => this.removeGame(ele.owned_id)}
+                        >remove</Button>
+                    </div>
                 </div>
             )
         })
+
+
+
         return (
-            <div className='profile-container'>
-                <div className='profile-image' style={{
-                    backgroundImage: `url(${this.props.user.backgroundImage})`
-                }}>
-                    <img className='profile-pic' src={this.props.user.image} alt='profile pic' />
-                </div>
-                <div className='profile-info'>
-                    <div className='profile-name'><h1>{this.props.user.name}</h1></div>
-                    <div className='profile-bio'><h3>{this.props.user.bio}</h3></div>
-                </div>
-                <div className='profile-games-list'>
-                    <h2 className='h2-game-list'>Your Games List:</h2>
-                    <div className='game-list'>
-                        {myList}
+            <ReactCardFlip isFlipped={this.state.isFlipped} className='profile-container' infinite>
+                <div key='front' >
+                    <div className='profile-image' style={{
+                        backgroundImage: `url(${this.props.user.backgroundImage})`
+                    }}>
+                        <img className='profile-pic' src={this.props.user.image} alt='profile pic' />
+                    </div>
+                    <div className='profile-info'>
+                        <div className='profile-name'><h1>{this.props.user.name}</h1></div>
+                        <div className='profile-bio'><h3>{this.props.user.bio}</h3></div>
+                    </div>
+                    <div className='btn-flip'>
+                        <Button
+                            classes={{
+                                label: this.props.classes.label
+                            }}
+                            // labelStyle={{ fontSize: '50px' }}
+                            className='btn-list'
+                            variant="outlined" color="primary"
+                            onClick={() => this.handleClick()}
+                        >
+                            View Game List
+                        </Button>
                     </div>
                 </div>
-            </div>
+                <div key='back' className='game-list'>
+                    {myList}
+                    <div className='button-margin'>
+                        <Button
+                            classes={{
+                                label: this.props.classes.label
+                            }}
+                            // labelStyle={{ fontSize: '50px' }}
+                            className='btn-list'
+                            variant="outlined" color="primary"
+                            onClick={() => this.handleClick()}
+                        >
+                            Profile
+                        </Button>
+                    </div>
+                </div>
+            </ReactCardFlip>
         );
     }
 }
@@ -72,4 +116,12 @@ const dispatchToProps = {
     updateOwnList
 }
 
-export default connect(stateToProps, dispatchToProps)(Profile);
+const styles = {
+    label: {
+        fontSize: '20px'
+    }
+}
+
+const StyledProfile = withStyles(styles)(Profile)
+
+export default connect(stateToProps, dispatchToProps)(StyledProfile);

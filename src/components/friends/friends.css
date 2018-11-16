@@ -1,14 +1,23 @@
-.profile-container {
+.main-match {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.friends-display {
+    margin-bottom: 20px;
+}
+/* .profile-container {
     width: 100%;
     height: 100vh;
     font-size: 30px;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-    align-items: center;
-    background-color: whitesmoke;
-}
-.profile-image {
+    /* align-items: center;
+    background-color: whitesmoke; 
+} */
+.friend-image {
     width: 100%;
     height: 55vh;
     font-size: 30px;
@@ -20,12 +29,9 @@
     background-size: cover;
 }
 
-.profile-header {
-    display: flex;
-    justify-content: space-between;
-}
 
-.profile-btn {
+
+/* .profile-btn {
     width: 200px;
     height: 30px;
     font-size: 20px;
@@ -36,10 +42,10 @@
     height: 50px;
     font-size: 20px;
     border-radius: 40%;
-}
+} */
 
 
-.profile-pic {
+.friend-pic {
     width: 60%;
     height: 60%;
     border-radius: 50%;
@@ -49,7 +55,7 @@
     
 }
 
-.profile-info {
+.friend-info {
     width: 100%;
     height: 60%;
     display: flex;
@@ -59,27 +65,12 @@
     margin-top: 50px;
 }
 
-.profile-name {
+.friend-name {
     font-size: 80px;
 }
-.profile-bio {
+.friend-bio {
     font-size: 40px;
 }
-
-.profile-games-list {
-    /* margin-top: 30px; */
-    /* display: flex; */
-    /* flex-direction: column;
-    /* justify-content: center; */
-    /* align-content: center; */
-}
-
-.game-list{
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    /* overflow-wrap: normal; */
-}
-
 .btn-flip {
     display: flex; 
     flex-direction: column;
@@ -87,26 +78,13 @@
     align-items: center;
     margin-top: 30px;
 }
-/* 
-.h2-game-list{
-    text-align: center;
-    margin-top: 50px;
-} */
+
 
 .btn-list {
     height: 60px;
     width: 300px;
     box-shadow: 10px 5px 10px gray;
 }
-
-.button-margin {
-    margin: 0px 10px;
-}
-
-.btn-g {
-    margin-top: 10px;
-}
-
 
 
 
