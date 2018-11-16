@@ -3,7 +3,7 @@ const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
 const ctrl = require('./controller/controller')
-const bcrypt = require('bcryptjs');
+const socket = require('socket.io')
 
 const {SECRET, SERVER_PORT, CONNECTiON_STRING, NODE_ENV} = process.env;
 
@@ -46,4 +46,12 @@ app.delete('/delete/:id', ctrl.deleteGame)
 
 app.put('/edit-profile', ctrl.editProfile)
 
-app.listen(SERVER_PORT, () => console.log(`Welcome ${SERVER_PORT}`))
+const io = socket(app.listen(SERVER_PORT, () => console.log(`Welcome ${SERVER_PORT}`)))
+
+io.on('connection', (socket) => {
+    console.log(socket.id);
+
+    socket.on('SEND_MESSAGE', function(data){
+        io.emit('RECEIVE_MESSAGE', data);
+    })
+});
