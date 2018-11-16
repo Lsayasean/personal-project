@@ -75,7 +75,7 @@
 }
 
 .game-list{
-    margin-bottom: 10px;
+    margin: 10px 0px;
     flex-wrap: wrap;
     /* overflow-wrap: normal; */
 }
@@ -106,6 +106,9 @@
 .btn-g {
     margin-top: 10px;
 }
+/* .front {
+    height: 50%;
+} */
 
 
 

@@ -58,7 +58,7 @@ class Profile extends Component {
 
         return (
             <ReactCardFlip isFlipped={this.state.isFlipped} className='profile-container' infinite>
-                <div key='front' >
+                <div key='front' className='front'>
                     <div className='profile-image' style={{
                         backgroundImage: `url(${this.props.user.backgroundImage})`
                     }}>

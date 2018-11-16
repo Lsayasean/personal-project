@@ -83,7 +83,8 @@ class Edit extends Component {
                         <input className='edit-input' value={bio} type='text' onChange={(e) => this.updateBio(e)} />
                     </div>
                     <Button
-                        variant="contained"
+                        color='primary'
+                        variant="outlined"
                         type='button'
                         onClick={() => this.updateInfo()}
                         className='edit-btn'

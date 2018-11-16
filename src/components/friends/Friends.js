@@ -22,11 +22,9 @@ class Friends extends Component {
                     }}>
                         <img className='friend-pic' src={ele.profile_image} alt='profile pic' />
                     </div>
-                    <div className='profriendfile-info'>
+                    <div className='friend-info'>
                         <div className='friend-name'><h1>{ele.name}</h1></div>
                         <div className='friend-bio'><h3>{ele.profile_bio}</h3></div>
-                    </div>
-                    <div className='btn-flip'>
                         <Button
                             classes={{
                                 label: this.props.classes.label
@@ -39,11 +37,14 @@ class Friends extends Component {
                             Message
                     </Button>
                     </div>
+                    <div className='btn-flip'>
+                    </div>
                 </div>
             )
         })
         return (
             <div className='main-match'>
+            <h2 className='p'>Matched Gamer Profiles</h2>
                 {matches}
             </div>
         );
