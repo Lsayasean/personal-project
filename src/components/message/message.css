@@ -4,7 +4,7 @@
     font-size: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    margin-bottom: 2px;
 
 }
 .input-text {
@@ -21,5 +21,11 @@
 }
 .input-box {
     display: flex;
+    width: 100%;
+    /* height: 100%; */
+    /* justify-content: flex-end; */
+    align-items: flex-end;
     border: 3px solid black;
+    bottom: 0px;
+    position: absolute;
 }

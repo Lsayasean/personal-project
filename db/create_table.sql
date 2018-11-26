@@ -21,3 +21,10 @@ owned_id serial PRIMARY key,
 game_id integer REFERENCES game(game_id) not null,
 profile_id integer REFERENCES user_profile(profile_id) not null
 )
+
+create table message(
+id serial primary key,
+user_name varchar(120),
+mes varchar (500)
+)
+

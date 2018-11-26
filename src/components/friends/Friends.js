@@ -3,7 +3,6 @@ import axios from 'axios';
 import './friends.css';
 import { connect } from 'react-redux';
 import { getMatch } from '../../ducks/reducer';
-import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
 class Friends extends Component {
@@ -25,7 +24,7 @@ class Friends extends Component {
                     <div className='friend-info'>
                         <div className='friend-name'><h1>{ele.name}</h1></div>
                         <div className='friend-bio'><h3>{ele.profile_bio}</h3></div>
-                        <Button
+                        {/* <Button
                             classes={{
                                 label: this.props.classes.label
                             }}
@@ -35,7 +34,7 @@ class Friends extends Component {
                             onClick={() => 'nothing'}
                         >
                             Message
-                    </Button>
+                    </Button> */}
                     </div>
                     <div className='btn-flip'>
                     </div>

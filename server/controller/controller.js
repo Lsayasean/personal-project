@@ -95,5 +95,18 @@ module.exports = {
         let results = await db.match_people(userId)
         res.status(200).send(results)
 
+    },
+    async message(req, res){
+        let {message, name} = req.body;
+        let db = req.app.get('db')
+        let results = db.create_mes([name,message])
+        console.log(results, 'from message')
+        res.status(200).send(results)
+    },
+    async getMessages(req, res){
+        let db = req.app.get('db')
+        let results = await db.get_messages()
+        console.log(results,'from getMes')
+        res.status(200).send(results)
     }
 }

@@ -33,6 +33,7 @@ app.use(async  (req, res, next) => {
 
 app.post('/auth/login', ctrl.login)
 app.post('/auth/register', ctrl.register)
+app.post('/messages', ctrl.message)
 
 
 app.get('/user_profile', ctrl.getUser)
@@ -41,6 +42,7 @@ app.get('/games-list', ctrl.getGames)
 app.get('/add-games/:id', ctrl.addGames)
 app.get('/my-games/:id', ctrl.myGames)
 app.get('/get-friends', ctrl.getMatch)
+app.get('/get-messages', ctrl.getMessages)
 
 app.delete('/delete/:id', ctrl.deleteGame)
 
@@ -52,6 +54,7 @@ io.on('connection', (socket) => {
     console.log(socket.id);
 
     socket.on('SEND_MESSAGE', function(data){
-        io.emit('RECEIVE_MESSAGE', data);
+        io.emit('RECEIVE_MESSAGE', data)
+        console.log(data)
     })
 });
