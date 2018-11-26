@@ -94,9 +94,14 @@
 } */
 
 .btn-list {
+    font-size: 25px;
     height: 60px;
     width: 300px;
     box-shadow: 10px 5px 10px gray;
+    border: 2px solid #3f50b5;
+    background-color: white;
+    color: #3f50b5;
+    border-radius: 20px;
 }
 
 .button-margin {
@@ -111,5 +116,26 @@
 } */
 
 
+@media(min-width: 700px){
+    .profile-pic {
+        width: 60%;
+        height: 75%;
+        border-radius: 50%;
+        border: 1px solid black;
+        object-fit: cover;
+        margin-top: 25px;
+        
+    }
 
+    .btn-list {
+        font-size: 35px;
+        height: 80px;
+        width: 400px;
+        box-shadow: 10px 5px 10px gray;
+        border: 2px solid #3f50b5;
+        background-color: white;
+        color: #3f50b5;
+        border-radius: 40px;
+    }
+}
 

@@ -106,7 +106,6 @@ module.exports = {
     async getMessages(req, res){
         let db = req.app.get('db')
         let results = await db.get_messages()
-        console.log(results,'from getMes')
         res.status(200).send(results)
     }
 }

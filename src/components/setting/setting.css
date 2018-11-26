@@ -14,4 +14,21 @@
     font-size: 30px;
     margin-top: 10px;
     border-radius: 100px;
+    border: 2px solid #3f50b5;
+    box-shadow: 10px 5px 10px gray;
+    color: #3f50b5;
+}
+
+@media(min-width: 700px){
+    .btn {
+        width: 400px;
+        height: 150px;
+        background-color: whitesmoke;
+        font-size: 50px;
+        margin-top: 10px;
+        border-radius: 100px;
+        border: 2px solid #3f50b5;
+        box-shadow: 10px 5px 10px gray;
+        color: #3f50b5;
+    }
 }

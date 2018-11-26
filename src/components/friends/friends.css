@@ -92,4 +92,20 @@
 }
 
 
-
+@media(min-width: 700px){
+    .friend-display {
+        width: 80%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        border: 3px solid black;
+        border-radius: 8px;
+    }
+    .p {
+        font-size: 60px;
+        margin: 20px 0px;
+    }
+}

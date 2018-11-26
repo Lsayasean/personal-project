@@ -21,33 +21,22 @@ class Message extends Component {
                 message: this.state.message,
                 name: this.props.user.name
             });
-            let res = axios.post('/messages', {
+            axios.post('/messages', {
                 message: this.state.message,
                 name: this.props.user.name
             })
-            // this.socket.on('RECEIVE_MESSAGE', () => {
-            //     this.setStat({messages: res.data})
-            //     console.log('from recieve_mes',res.data)
-            // })
-            console.log('res', res)
             this.setState({message: ''});
         }
 
-        this.socket.on('RECEIVE_MESSAGE', function (data) {
-            console.log(addMessage)
-            addMessage(data);
-            console.log('data',data)
+        this.socket.on('RECEIVE_MESSAGE', () => {
+            axios.get('/get-messages').then(res => {
+                this.setState({messages: res.data})
+            })
         });
-        const addMessage = data => {
-            console.log(data);
-            this.setState({ messages: [...this.state.messages, data] });
-            console.log(this.state.messages);
-        };
     }
 
     async componentDidMount(){
         let res = await axios.get('/get-messages')
-        console.log('componentdidmount',res.data)
         this.setState({messages: res.data})
     }
 
@@ -60,7 +49,6 @@ class Message extends Component {
         let mes = this.state.messages.map((ele, i) => {
             return (<div key={i}>{ele.user_name}: {ele.mes}</div>)
         })
-        console.log(this.props.user.name,'messages', this.state.messages)
         return (
             <div className='main'>
                 {mes}

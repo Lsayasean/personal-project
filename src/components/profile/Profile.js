@@ -3,8 +3,6 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { userUpdate, updateOwnList } from './../../ducks/reducer'
 import './profile.css'
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
 import ReactCardFlip from 'react-card-flip';
 
 
@@ -45,10 +43,9 @@ class Profile extends Component {
                         <img className='img' src={ele.game_pic} alt='game pic' />
                     </div>
                     <div className='btn-g'>
-                        <Button className='add-btn'
-                            variant="outlined" color="secondary"
+                        <button className='add-btn'
                             onClick={() => this.removeGame(ele.owned_id)}
-                        >remove</Button>
+                        >remove</button>
                     </div>
                 </div>
             )
@@ -69,33 +66,29 @@ class Profile extends Component {
                         <div className='profile-bio'><h3>{this.props.user.bio}</h3></div>
                     </div>
                     <div className='btn-flip'>
-                        <Button
-                            classes={{
-                                label: this.props.classes.label
-                            }}
+                        <button
+                            // classes={{
+                            //     label: this.props.classes.label
+                            // }}
                             // labelStyle={{ fontSize: '50px' }}
                             className='btn-list'
-                            variant="outlined" color="primary"
+                            // variant="outlined" color="primary"
                             onClick={() => this.handleClick()}
                         >
                             View Game List
-                        </Button>
+                        </button>
                     </div>
                 </div>
                 <div key='back' className='game-list'>
                     {myList}
                     <div className='button-margin'>
-                        <Button
-                            classes={{
-                                label: this.props.classes.label
-                            }}
+                        <button
                             // labelStyle={{ fontSize: '50px' }}
                             className='btn-list'
-                            variant="outlined" color="primary"
                             onClick={() => this.handleClick()}
                         >
                             Profile
-                        </Button>
+                        </button>
                     </div>
                 </div>
             </ReactCardFlip>
@@ -116,12 +109,5 @@ const dispatchToProps = {
     updateOwnList
 }
 
-const styles = {
-    label: {
-        fontSize: '20px'
-    }
-}
 
-const StyledProfile = withStyles(styles)(Profile)
-
-export default connect(stateToProps, dispatchToProps)(StyledProfile);
+export default connect(stateToProps, dispatchToProps)(Profile);

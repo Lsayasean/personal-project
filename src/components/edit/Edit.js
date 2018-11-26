@@ -3,7 +3,6 @@ import './edit.css'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { userUpdate } from '../../ducks/reducer'
-import Button from '@material-ui/core/Button';
 
 
 class Edit extends Component {
@@ -82,13 +81,11 @@ class Edit extends Component {
                         <br />
                         <input className='edit-input' value={bio} type='text' onChange={(e) => this.updateBio(e)} />
                     </div>
-                    <Button
-                        color='primary'
-                        variant="outlined"
+                    <button
                         type='button'
                         onClick={() => this.updateInfo()}
                         className='edit-btn'
-                    >Update</Button>
+                    >Update</button>
                 </form>
             </div>
         );

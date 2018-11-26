@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
-import './Home.css';
-import Button from '@material-ui/core/Button';
+import './Home.css'
 
 class Home extends Component {
     constructor(props){
@@ -31,7 +30,6 @@ class Home extends Component {
             email: email,
             password: password
         })
-        console.log(res.data)
         if(res.data.message === 'Logged in.'){
             this.props.history.push('/profile')
         }
@@ -52,8 +50,8 @@ class Home extends Component {
                         <br />
                         <input className='form-input' placeholder='Password' type='password' onChange={(e) => this.updatePass(e)} />
                     </div>
-                    <Button variant='outlined' color='primary' className='form-BTN' type='button' onClick={() => this.login()}>Login</Button>
-                    <Link to='/register'><Button variant='outlined' color='primary' className='form-BTN'>Register</Button></Link>
+                    <button className='form-BTN' type='button' onClick={() => this.login()}>Login</button>
+                    <Link to='/register'><button className='form-BTN'>Register</button></Link>
                 </form>
             </div>
         );

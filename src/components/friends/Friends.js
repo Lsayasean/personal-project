@@ -24,17 +24,6 @@ class Friends extends Component {
                     <div className='friend-info'>
                         <div className='friend-name'><h1>{ele.name}</h1></div>
                         <div className='friend-bio'><h3>{ele.profile_bio}</h3></div>
-                        {/* <Button
-                            classes={{
-                                label: this.props.classes.label
-                            }}
-                            // labelStyle={{ fontSize: '50px' }}
-                            className='btn-list'
-                            variant="outlined" color="primary"
-                            onClick={() => 'nothing'}
-                        >
-                            Message
-                    </Button> */}
                     </div>
                     <div className='btn-flip'>
                     </div>
