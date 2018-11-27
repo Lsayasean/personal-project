@@ -15,6 +15,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .games-image {
@@ -26,6 +27,7 @@
 
 .img {
     width: 100%;
+    border-radius: 50px;
 }
 
 .game-title {
@@ -94,5 +96,8 @@
         text-decoration: none;
         overflow: hidden;
         border-radius: 20px;
+    }
+    .list-mini-container{
+        width: 72%
     }
 }

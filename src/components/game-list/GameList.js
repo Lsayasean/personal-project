@@ -11,7 +11,7 @@ class GameList extends Component {
         this.props.gameList(res.data)
     }
 
-    addGame(id){
+    addGame(id) {
         axios.get(`/add-games/${id}`)
     }
     render() {
@@ -24,15 +24,17 @@ class GameList extends Component {
                         <img className='img' src={ele.game_pic} alt='game pic' />
                     </div>
                     <h2 className='game-title'>Add games to list</h2>
-                   <button className='add-btn' 
-                   onClick={() => this.addGame(ele.game_id)}
-                   >add</button>
+                    <button className='add-btn'
+                        onClick={() => this.addGame(ele.game_id)}
+                    >add</button>
                 </div>
             )
         })
         return (
             <div className='game-list-container'>
-                {lists}
+                <div className='list-mini-container'>
+                    {lists}
+                </div>
             </div>
         );
     }

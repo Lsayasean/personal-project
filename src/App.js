@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <HashRouter>
-          <div>
+          <div className='app-main'>
             <div>
               <Nav />
             </div>

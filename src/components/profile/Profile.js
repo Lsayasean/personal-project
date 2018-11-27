@@ -52,46 +52,44 @@ class Profile extends Component {
         })
 
 
-
+        let containerStyle = !this.state.isFlipped ? {
+            height: '80vh',
+            overflow: 'hidden'
+        } : { minHeight: '100vh' }
         return (
-            <ReactCardFlip isFlipped={this.state.isFlipped} className='profile-container' infinite>
-                <div key='front' className='front'>
-                    <div className='profile-image' style={{
-                        backgroundImage: `url(${this.props.user.backgroundImage})`
-                    }}>
-                        <img className='profile-pic' src={this.props.user.image} alt='profile pic' />
+            <div style={containerStyle}>
+                <ReactCardFlip isFlipped={this.state.isFlipped} className='profile-container' infinite>
+                    <div key='front' className='front'>
+                        <div className='profile-image' style={{
+                            backgroundImage: `url(${this.props.user.backgroundImage})`
+                        }}>
+                            <img className='profile-pic' src={this.props.user.image} alt='profile pic' />
+                        </div>
+                        <div className='profile-info'>
+                            <div className='profile-name'><h1>{this.props.user.name}</h1></div>
+                            <div className='profile-bio'><h3>{this.props.user.bio}</h3></div>
+                            <div className='btn-flip'>
+                                <button
+                                    className='btn-list'
+                                    onClick={() => this.handleClick()}
+                                >
+                                    View Game List </button>
+                            </div>
+                        </div>
                     </div>
-                    <div className='profile-info'>
-                        <div className='profile-name'><h1>{this.props.user.name}</h1></div>
-                        <div className='profile-bio'><h3>{this.props.user.bio}</h3></div>
-                    </div>
-                    <div className='btn-flip'>
-                        <button
-                            // classes={{
-                            //     label: this.props.classes.label
-                            // }}
-                            // labelStyle={{ fontSize: '50px' }}
-                            className='btn-list'
-                            // variant="outlined" color="primary"
-                            onClick={() => this.handleClick()}
-                        >
-                            View Game List
+                    <div key='back' className='game-lists'>
+                        {myList}
+                        <div className='button-margin'>
+                            <button
+                                className='btn-list'
+                                onClick={() => this.handleClick()}
+                            >
+                                Profile
                         </button>
+                        </div>
                     </div>
-                </div>
-                <div key='back' className='game-list'>
-                    {myList}
-                    <div className='button-margin'>
-                        <button
-                            // labelStyle={{ fontSize: '50px' }}
-                            className='btn-list'
-                            onClick={() => this.handleClick()}
-                        >
-                            Profile
-                        </button>
-                    </div>
-                </div>
-            </ReactCardFlip>
+                </ReactCardFlip>
+            </div>
         );
     }
 }

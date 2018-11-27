@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import './message.css'
@@ -25,19 +25,19 @@ class Message extends Component {
                 message: this.state.message,
                 name: this.props.user.name
             })
-            this.setState({message: ''});
+            this.setState({ message: '' });
         }
 
         this.socket.on('RECEIVE_MESSAGE', () => {
             axios.get('/get-messages').then(res => {
-                this.setState({messages: res.data})
+                this.setState({ messages: res.data })
             })
         });
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
         let res = await axios.get('/get-messages')
-        this.setState({messages: res.data})
+        this.setState({ messages: res.data })
     }
 
     updateMessage(e) {
@@ -47,29 +47,31 @@ class Message extends Component {
 
     render() {
         let mes = this.state.messages.map((ele, i) => {
-            return (<div key={i}>{ele.user_name}: {ele.mes}</div>)
+            return (<div key={i} className='messages'>{ele.user_name}: {ele.mes}</div>)
         })
         return (
             <div className='main'>
-                {mes}
-                <div className='input-box'>
-                    <input placeholder='...'
-                        value={this.state.message}
-                        className='input-text'
-                        onChange={(e) => this.updateMessage(e)}
-                    />
+                <div className='mess'>
+                    {mes}
+                    <div className='input-box'>
+                        <input placeholder='...'
+                            value={this.state.message}
+                            className='input-text'
+                            onChange={(e) => this.updateMessage(e)}
+                        />
 
-                    <Button
-                        className='btn-send'
-                        onClick={() => this.sendMessage()}
-                    ><i className="fas fa-paper-plane"></i></Button>
+                        <Button
+                            className='btn-send'
+                            onClick={() => this.sendMessage()}
+                        ><i className="fas fa-paper-plane"></i></Button>
+                    </div>
                 </div>
             </div>
         );
     }
 }
 
-function stateToProps(state){
+function stateToProps(state) {
     return {
         user: state.user
     }

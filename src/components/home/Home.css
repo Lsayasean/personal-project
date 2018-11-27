@@ -1,14 +1,16 @@
 .form-container {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items : center;
-
+    background-image: url('https://farm4.staticflickr.com/3673/13148632635_94ff5a9989_b.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .login-form {
-    height: 50vh;
+    height: 60%;
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -18,6 +20,8 @@
     background-color: whitesmoke;
     padding: 2px;
     font-size: 20px;
+    opacity: .9;
+    border-radius: 10px;
 }
 
 .form-BTN {
@@ -25,7 +29,7 @@
     height: 30px;
     margin-top: 10px;
     font-size: 20px;
-    border-radius: 0px;
+    border-radius: 10px;
     border: 2px solid #3f50b5;
     box-shadow: 10px 5px 10px gray;
     color: #3f50b5;
@@ -41,12 +45,66 @@
     font-size: 20px;
 }
 
-@media(min-width: 700px){
+@media (min-width: 700px){
+    .form-BTN {
+        width: 250px;
+        height: 45px;
+        border-radius: 20px;
+        margin-top: 10px;
+        font-size: 30px;
+    }
+    .login-form {
+        height: 60%;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        background-color: whitesmoke;
+        padding: 2px;
+        font-size: 40px;
+        border-radius: 10px;
+    }
+    .form-input {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid black;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 1000px){
     .form-BTN {
         width: 200px;
-        height: 50px;
-        border-radius: 5px;
+        height: 35px;
+        border-radius: 20px;
         margin-top: 10px;
+        font-size: 15px;
+    }
+    .login-form {
+        height: 70%;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        background-color: whitesmoke;
+        padding: 2px;
+        font-size: 20px;
+        border-radius: 10px;
+    }
+    .form-input {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid black;
+        margin-top: 10px;
+        margin-bottom: 10px;
         font-size: 20px;
     }
 }

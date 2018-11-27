@@ -15,15 +15,15 @@ class Friends extends Component {
         console.log(this.props)
         let matches = this.props.match.map(ele => {
             return (
-                <div key = {ele.profile_id} className='friend-display'>
-                    <div className='friend-image' style={{
+                <div key = {ele.profile_id} className='friend-displays'>
+                    <div className='friend-images' style={{
                         backgroundImage: `url(${ele.background_image})`
                     }}>
-                        <img className='friend-pic' src={ele.profile_image} alt='profile pic' />
+                        <img className='friend-pics' src={ele.profile_image} alt='profile pic' />
                     </div>
                     <div className='friend-info'>
-                        <div className='friend-name'><h1>{ele.name}</h1></div>
-                        <div className='friend-bio'><h3>{ele.profile_bio}</h3></div>
+                        <div className='friend-names'><h1>{ele.name}</h1></div>
+                        <div className='friend-bios'><h3>{ele.profile_bio}</h3></div>
                     </div>
                     <div className='btn-flip'>
                     </div>

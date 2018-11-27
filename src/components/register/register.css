@@ -1,15 +1,17 @@
 .register-container {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items : center;
-    background-color: whitesmoke;
+    background-image: url('https://farm4.staticflickr.com/3673/13148632635_94ff5a9989_b.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 .register-form {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -20,20 +22,76 @@
     font-size: 20px;
 }
 
-.form-BTN {
-    width: 200px;
+.form-BTNS {
+    width: 250px;
     height: 30px;
-    border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid #3f50b5;
+    box-shadow: 10px 5px 10px gray;
+    color: #3f50b5;
 }
 
-.form-input {
+.form-inputs {
     background-color: transparent;
     outline: none;
     border: none;
     border-bottom: 1px solid black;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 25px;
+}
+
+@media(min-width: 700px){
+    .form-BTNS {
+        width: 350px;
+        height: 45px;
+        border-radius: 20px;
+        margin-top: 10px;
+        font-size: 30px;
+    }
+    
+    .form-inputs {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid black;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+}
+
+@media(min-width: 1000px){
+    .form-BTNS {
+        width: 180px;
+        height: 25px;
+        border-radius: 20px;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    
+    .form-inputs {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid black;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    .register-form {
+        height: 80%;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        background-color: whitesmoke;
+        font-size: 15px;
+        border-radius: 10px;
+        opacity: .9;
+    }
 }

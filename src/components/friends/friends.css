@@ -6,9 +6,9 @@
     justify-content: center;
     align-items: center;
 }
-.friend-display {
+.friend-displays {
     width: 90%;
-    height: 95%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,12 +18,12 @@
     border-radius: 8px;
 }
 .p {
-    font-size: 40px;
+    font-size: 30px;
     margin: 20px 0px;
 }
-.friend-image {
+.friend-images {
     width: 100%;
-    height: 55vh;
+    height: 100%;
     font-size: 30px;
     display: flex;
     flex-direction: column;
@@ -35,23 +35,9 @@
 
 
 
-/* .profile-btn {
-    width: 200px;
-    height: 30px;
-    font-size: 20px;
-    border-radius: 10px;
-}
-.profile-logout {
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-    border-radius: 40%;
-} */
-
-
-.friend-pic {
-    width: 60%;
-    height: 60%;
+.friend-pics {
+    width: 70%;
+    height: 80%;
     border-radius: 50%;
     border: 1px solid black;
     object-fit: cover;
@@ -69,11 +55,12 @@
     /* margin-top: 50px; */
 }
 
-.friend-name {
-    font-size: 80px;
+.friend-names {
+    font-size: 60px;
+    margin-bottom: 20px;
 }
-.friend-bio {
-    font-size: 40px;
+.friend-bios {
+    font-size: 30px;
 }
 .btn-flip {
     display: flex; 
@@ -104,8 +91,58 @@
         border: 3px solid black;
         border-radius: 8px;
     }
+    .friend-pics {
+        width: 60%;
+        height: 80%;
+        border-radius: 50%;
+        border: 1px solid black;
+        object-fit: cover;
+        margin-top: 25px;
+        
+    }
+    .friend-names {
+        font-size: 90px;
+        margin-bottom: 20px;
+    }
+    .friend-bios {
+        font-size: 40px;
+    }
     .p {
-        font-size: 60px;
+        font-size: 50px;
+        margin: 20px 0px;
+    }
+}
+
+@media(min-width: 1000px){
+    .friend-displays {
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        border: 3px solid black;
+        border-radius: 8px;
+    }
+    .friend-pics {
+        width: 60%;
+        height: 80%;
+        border-radius: 50%;
+        border: 1px solid black;
+        object-fit: cover;
+        margin-top: 25px;
+        
+    }
+    .friend-names {
+        font-size: 80px;
+        margin-bottom: 20px;
+    }
+    .friend-bios {
+        font-size: 30px;
+    }
+    .p {
+        font-size: 50px;
         margin: 20px 0px;
     }
 }

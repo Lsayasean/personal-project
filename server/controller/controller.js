@@ -100,7 +100,6 @@ module.exports = {
         let {message, name} = req.body;
         let db = req.app.get('db')
         let results = db.create_mes([name,message])
-        console.log(results, 'from message')
         res.status(200).send(results)
     },
     async getMessages(req, res){

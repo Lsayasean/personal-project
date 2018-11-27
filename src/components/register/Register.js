@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import './register.css';
 
 class Register extends Component {
@@ -72,35 +71,35 @@ class Register extends Component {
                     <div>
                         <label>Name:</label>
                         <br />
-                        <input className='form-input' placeholder='name' type='text' onChange={(e) => this.updateName(e)} />
+                        <input className='form-inputs' placeholder='name' type='text' onChange={(e) => this.updateName(e)} />
                     </div>
                     <div>
-                        <label>Profiel-Image:</label>
+                        <label>Profile-Image:</label>
                         <br />
-                        <input className='form-input' placeholder='image-URL' type='text' onChange={(e) => this.updateImage(e)} />
+                        <input className='form-inputs' placeholder='image-URL' type='text' onChange={(e) => this.updateImage(e)} />
                     </div>
                     <div>
                         <label>Background:</label>
                         <br />
-                        <input className='form-input' placeholder='background-URL' type='text' onChange={(e) => this.updateBackground(e)} />
+                        <input className='form-inputs' placeholder='background-URL' type='text' onChange={(e) => this.updateBackground(e)} />
                     </div>
                     <div>
                         <label>Email::</label>
                         <br />
-                        <input className='form-input' placeholder='email' type='email' onChange={(e) => this.updateEmail(e)} />
+                        <input className='form-inputs' placeholder='email' type='email' onChange={(e) => this.updateEmail(e)} />
                     </div>
                     <div>
                         <label>Password:</label>
                         <br />
-                        <input className='form-input' placeholder='Password' type='password' onChange={(e) => this.updatePass(e)} />
+                        <input className='form-inputs' placeholder='Password' type='password' onChange={(e) => this.updatePass(e)} />
                     </div>
                     <div>
                         <label>Bio:</label>
                         <br />
-                        <input className='form-input' placeholder='Type of gamer' type='text' onChange={(e) => this.updateBio(e)} />
+                        <input className='form-inputs' placeholder='Type of gamer' type='text' onChange={(e) => this.updateBio(e)} />
                     </div>
-                    <Button variant='outlined' color='primary'  className='form-BTN' type='button' onClick={() => this.register()}>Register</Button>
-                    <Link to='/'><Button variant='outlined' color='primary' className='form-BTN' type='button'>Back</Button></Link>
+                    <button className='form-BTNS' type='button' onClick={() => this.register()}>Register</button>
+                    <Link to='/'><button  className='form-BTNS' type='button'>Back</button></Link>
                 </form>
             </div>
         );
