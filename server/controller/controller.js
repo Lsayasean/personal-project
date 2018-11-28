@@ -106,5 +106,11 @@ module.exports = {
         let db = req.app.get('db')
         let results = await db.get_messages()
         res.status(200).send(results)
+    },
+    async addGame(req, res) {
+        let {name, picture } = req.body;
+        let db = req.app.get('db')
+        let results = await db.create_new_game([name, picture])
+        res.status(200).send(results)
     }
 }

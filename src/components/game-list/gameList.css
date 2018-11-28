@@ -71,6 +71,18 @@
     transition: 0s
 }
 
+.btnz {
+        width: 175px;
+        height: 50px;
+        background-color: whitesmoke;
+        font-size: 20px;
+        margin-top: 10px;
+        border-radius: 100px;
+        border: 2px solid #3f50b5;
+        box-shadow: 10px 5px 10px gray;
+        color: #3f50b5;
+    }
+
 
 
 @media(min-width: 700px){
@@ -90,5 +102,16 @@
     }
     .list-mini-container{
         width: 72%
+    }
+    .btnz {
+        width: 200px;
+        height: 75px;
+        background-color: whitesmoke;
+        font-size: 25px;
+        margin-top: 10px;
+        border-radius: 100px;
+        border: 2px solid #3f50b5;
+        box-shadow: 10px 5px 10px gray;
+        color: #3f50b5;
     }
 }

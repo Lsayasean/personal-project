@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-.btn {
+.btns {
     width: 200px;
     height: 100px;
     background-color: whitesmoke;
@@ -20,7 +20,7 @@
 }
 
 @media(min-width: 700px){
-    .btn {
+    .btns {
         width: 400px;
         height: 150px;
         background-color: whitesmoke;
@@ -33,7 +33,7 @@
     }
 }
 @media(min-width: 1000px){
-    .btn {
+    .btns {
         width: 300px;
         height: 75px;
         background-color: whitesmoke;

@@ -1,3 +1,11 @@
 .app-main {
   font-family:'Merriweather Sans','Roboto'
 }
+.btn {
+  font-size: 15px;
+  width: 100px;
+  height: 40px;
+  color: white;
+  background-color: red;
+  border-radius: 10px;
+}

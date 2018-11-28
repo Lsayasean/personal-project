@@ -8,9 +8,9 @@ class Setting extends Component {
         return (
             <div className='setting-container'>
                 <Link to='/edit-profile'><button 
-                className='btn'>Edit Profile</button></Link>
+                className='btns'>Edit Profile</button></Link>
                 <a href="http://localhost:4000/logout"><button 
-                className='btn'>Logout</button></a>
+                className='btns'>Logout</button></a>
             </div>
         );
     }

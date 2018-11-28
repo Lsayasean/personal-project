@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { gameList, updateGameList } from './../../ducks/reducer';
 import { connect } from 'react-redux';
-import {DotLoader} from 'react-spinners'
+import { DotLoader } from 'react-spinners'
+import {Link} from 'react-router-dom'
 import './gameList.css'
 
 class GameList extends Component {
-    constructor(){
+    constructor() {
         super()
 
         this.state = {
@@ -16,7 +17,7 @@ class GameList extends Component {
     async componentDidMount() {
         let res = await axios.get('/games-list')
         this.props.gameList(res.data)
-        this.setState({isLoading: false})
+        this.setState({ isLoading: false })
     }
 
     addGame(id) {
@@ -38,11 +39,11 @@ class GameList extends Component {
                 </div>
             )
         })
-        if(this.state.isLoading){
-            return(
+        if (this.state.isLoading) {
+            return (
                 <div className='sweet-loading'>
-                    <DotLoader 
-                    size={50}
+                    <DotLoader
+                        size={50}
                     />
                 </div>
             )
@@ -51,6 +52,9 @@ class GameList extends Component {
             <div className='game-list-container'>
                 <div className='list-mini-container'>
                     {lists}
+                </div>
+                <div>
+                    <Link to='/add-game'><button className='btnz'>Add New Game</button></Link>
                 </div>
             </div>
         );

@@ -3,6 +3,7 @@ import './edit.css'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { userUpdate } from '../../ducks/reducer'
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 
 class Edit extends Component {
@@ -13,7 +14,8 @@ class Edit extends Component {
             name: this.props.user.name,
             image: this.props.user.image,
             background: this.props.user.backgroundImage,
-            bio: this.props.user.bio
+            bio: this.props.user.bio,
+            alert: ''
 
         }
     }
@@ -41,17 +43,18 @@ class Edit extends Component {
         let { name, bio, image, background } = this.state;
         console.log(image.length)
         if (!name || !bio || !image || !background) {
-            return alert('Please fill out all fields.')
-        }
-        let res = await axios.put('/edit-profile', {
-            name,
-            image,
-            bio,
-            background
-        })
-        this.props.userUpdate(res.data)
-        this.props.history.push('/profile')
+            this.setState({ alert: 'Please fill out all fields' })
+        } else {
+            let res = await axios.put('/edit-profile', {
+                name,
+                image,
+                bio,
+                background
+            })
+            this.props.userUpdate(res.data)
+            this.props.history.push('/profile')
 
+        }
     }
 
 
@@ -60,6 +63,9 @@ class Edit extends Component {
         console.log(this.props)
         return (
             <div className='edit-container'>
+                {this.state.alert &&
+                    <SweetAlert title={this.state.alert} onConfirm={() => this.setState({ alert: '' })} />
+                }
                 <form className='edit-form'>
                     <div>
                         <label>Name:</label>

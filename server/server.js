@@ -34,6 +34,7 @@ app.use(async  (req, res, next) => {
 app.post('/auth/login', ctrl.login)
 app.post('/auth/register', ctrl.register)
 app.post('/messages', ctrl.message)
+app.post('/add-game', ctrl.addGame)
 
 
 app.get('/user_profile', ctrl.getUser)
