@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { userUpdate, updateOwnList } from './../../ducks/reducer'
 import './profile.css'
 import ReactCardFlip from 'react-card-flip';
+import {DotLoader} from 'react-spinners'
 
 
 class Profile extends Component {
@@ -11,7 +12,8 @@ class Profile extends Component {
         super(props)
 
         this.state = {
-            isFlipped: false
+            isFlipped: false,
+            isLoading: true
         }
     }
 
@@ -21,6 +23,7 @@ class Profile extends Component {
         let res2 = await axios.get(`/my-games/${this.props.user.id}`)
         this.props.updateOwnList(res2.data)
         console.log('games list', res2.data)
+        this.setState({isLoading: false})
     }
 
     async removeGame(id) {
@@ -56,6 +59,16 @@ class Profile extends Component {
             height: '80vh',
             overflow: 'hidden'
         } : { minHeight: '100vh' }
+
+        if(this.state.isLoading){
+            return(
+                <div className='sweet-loading'>
+                    <DotLoader 
+                    size={50}
+                    />
+                </div>
+            )
+        }
         return (
             <div style={containerStyle}>
                 <ReactCardFlip isFlipped={this.state.isFlipped} className='profile-container' infinite>

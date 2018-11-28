@@ -1,10 +1,11 @@
 .main {
     width: 100%;
-    height: 94vh;
+    min-height: 100vh;
     font-size: 30px;
     display: flex;
     flex-direction: column;
     margin-bottom: 2px;
+    background-color: whitesmoke;
 }
 .input-text {
     width: 100%;
@@ -20,38 +21,74 @@
 }
 .input-box {
     display: flex;
+    justify-content: center;
     width: 100%;
-    /* height: 100%; */
-    /* justify-content: flex-end; */
-    align-items: flex-end;
-    border: 3px solid black;
+    border: 1px solid black;
     bottom: 0px;
-    position: absolute;
+    /* position: absolute; */
+
 }
 .messages{
     margin-bottom: 10px;
     margin-left: 5px;
     margin-top: 10px;
+    
+}
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 20px;
+}
+.mess {
+    flex-wrap: wrap;
+    /* overflow: scroll; */
 }
 
+@media(min-width: 700px){
+    .outer-box{
+        display: flex;
+        justify-content: center;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: fixed;
+    }
+    .input-box {
+        width: 100%;
+        bottom: 0;
+    }
+}
 
 
 @media(min-width: 1000px){
     .mess {
-        width: 80.5%;
+        background-color: white;
+        padding-bottom: 50px;
+        width: 60%;
         margin: 0px auto;
         height: 100%;
-        border-left: 3px solid black;
-        border-right: 3px solid black;
     }
     .input-box {
+        width: 60%;
+        bottom: 0;
+        margin: 0px auto;
+        /* position: fixed; */
+    }
+    .input-text {
+        width: 100%;
+        height: 50px;
+        font-size: 30px;
+        border: 1px solid black;
+    }
+    .outer-box{
         display: flex;
-        width: 80%;
-        /* height: 100%; */
-        /* justify-content: flex-end; */
-        align-items: flex-end;
-        border: 3px solid black;
-        bottom: 0px;
-        position: absolute;
+        justify-content: center;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: relative;
     }
 }

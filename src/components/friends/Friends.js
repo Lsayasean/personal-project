@@ -4,11 +4,20 @@ import './friends.css';
 import { connect } from 'react-redux';
 import { getMatch } from '../../ducks/reducer';
 import { withStyles } from '@material-ui/core/styles';
+import {DotLoader} from 'react-spinners'
 
 class Friends extends Component {
+    constructor(){
+        super()
+
+        this.state={
+            isLoading: true
+        }
+    }
     async componentDidMount() {
         let res = await axios.get('/get-friends')
         this.props.getMatch(res.data)
+        this.setState({isLoading: false})
 
     }
     render() {
@@ -30,6 +39,15 @@ class Friends extends Component {
                 </div>
             )
         })
+        if(this.state.isLoading){
+            return(
+                <div className='sweet-loading'>
+                    <DotLoader 
+                    size={50}
+                    />
+                </div>
+            )
+        }
         return (
             <div className='main-match'>
             <h2 className='p'>Matched Gamer Profiles</h2>

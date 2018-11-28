@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import io from 'socket.io-client';
 import { connect } from 'react-redux'
 import axios from 'axios'
-import Button from '@material-ui/core/Button';
 import './message.css'
+import {DotLoader} from 'react-spinners'
 
 class Message extends Component {
     constructor(props) {
@@ -11,7 +11,8 @@ class Message extends Component {
 
         this.state = {
             message: '',
-            messages: []
+            messages: [],
+            isLoading: true
         };
 
         this.socket = io('localhost:4000');
@@ -37,22 +38,44 @@ class Message extends Component {
 
     async componentDidMount() {
         let res = await axios.get('/get-messages')
-        this.setState({ messages: res.data })
+        this.setState({ messages: res.data, isLoading: false })
+        this.scrollToBottom()
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom()
     }
 
     updateMessage(e) {
         this.setState({ message: e.target.value })
     }
 
+    scrollToBottom() {
+        this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
+    }
+
+
 
     render() {
         let mes = this.state.messages.map((ele, i) => {
-            return (<div key={i} className='messages'>{ele.user_name}: {ele.mes}</div>)
+            return (<div key={i} className='messages container'>{ele.user_name}: {ele.mes}</div>)
         })
+        if(this.state.isLoading){
+            return(
+                <div className='sweet-loading'>
+                    <DotLoader 
+                    size={50}
+                    />
+                </div>
+            )
+        }
         return (
             <div className='main'>
                 <div className='mess'>
                     {mes}
+                </div>
+                <div ref={el => { this.messagesEnd = el }}></div>
+                <div className='outer-box'>
                     <div className='input-box'>
                         <input placeholder='...'
                             value={this.state.message}
@@ -60,10 +83,11 @@ class Message extends Component {
                             onChange={(e) => this.updateMessage(e)}
                         />
 
-                        <Button
+
+                        <button
                             className='btn-send'
                             onClick={() => this.sendMessage()}
-                        ><i className="fas fa-paper-plane"></i></Button>
+                        ><i className="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
