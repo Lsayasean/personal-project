@@ -45,6 +45,7 @@ module.exports = {
         res.status(200).send({message: 'Logged in.'})
     },
     async getUser(req,res) {
+        console.log(req.session.user)
         if(req.session.user){
             res.status(200).send(req.session.user)
         } else {
@@ -83,10 +84,19 @@ module.exports = {
         res.status(200).send(results)
     },
     async editProfile(req, res) {
+        console.log(req.session.user)
         let {name, image, bio, background} = req.body;
         let db = req.app.get('db')
         let userId = req.session.user.id;
-        let results = db.edit_user_info([name, bio, image, userId, background])
+        let results = await db.edit_user_info([name, bio, image, userId, background])
+        req.session.user = {
+            id: results[0].profile_id,
+            name: results[0].name,
+            email: results[0].profile_email,
+            bio: results[0].profile_bio,
+            image: results[0].profile_image,
+            backgroundImage: results[0].background_image
+        }
         res.status(200).send(results)
     },
     async getMatch(req, res) {
