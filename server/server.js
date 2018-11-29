@@ -9,6 +9,7 @@ const {SECRET, SERVER_PORT, CONNECTiON_STRING, NODE_ENV} = process.env;
 
 const app = express();
 app.use(express.json())
+// app.use( express.static( `${__dirname}/../build` ) );
 massive(CONNECTiON_STRING).then(db => app.set('db', db))
 app.use(session({
     secret: SECRET,
@@ -16,20 +17,20 @@ app.use(session({
     saveUninitialized: false
 }))
 
-app.use(async  (req, res, next) => {
-    if(NODE_ENV === 'development'){
-        let db = req.app.get('db')
-       let results = await db.find_profile('sayasean@gmail.com')
-        req.session.user = {
-            id: results[0].profile_id,
-            name: results[0].name,
-            email: results[0].profile_email,
-            bio: results[0].profile_bio,
-            image: results[0].profile_image,
-            backgroundImage: results[0].background_image
-        }
-    } next()
-})
+// app.use(async  (req, res, next) => {
+//     if(NODE_ENV === 'development'){
+//         let db = req.app.get('db')
+//        let results = await db.find_profile('sayasean@gmail.com')
+//         req.session.user = {
+//             id: results[0].profile_id,
+//             name: results[0].name,
+//             email: results[0].profile_email,
+//             bio: results[0].profile_bio,
+//             image: results[0].profile_image,
+//             backgroundImage: results[0].background_image
+//         }
+//     } next()
+// })
 
 app.post('/auth/login', ctrl.login)
 app.post('/auth/register', ctrl.register)

@@ -18,7 +18,9 @@ class Profile extends Component {
     }
 
     async componentDidMount() {
+        console.log('profile comp did mob')
         let res = await axios.get('/user_profile')
+        console.log(res)
         this.props.userUpdate(res.data)
         let res2 = await axios.get(`/my-games/${this.props.user.id}`)
         this.props.updateOwnList(res2.data)
