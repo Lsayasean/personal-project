@@ -53,7 +53,7 @@ module.exports = {
     },
     logout(req, res) {
         req.session.destroy();
-        res.redirect('http://localhost:3000')
+        res.redirect('firstpersonqt.com')
     },
     async getGames(req, res) {
         let db = req.app.get('db')
