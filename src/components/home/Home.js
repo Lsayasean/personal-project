@@ -33,9 +33,7 @@ class Home extends Component {
                 email: email,
                 password: password
             })
-            if(res.data.message === 'Incorrect password.' ){
-                this.setState({alert: 'Incorrect password.' })
-            }else if (res.data.message === 'Logged in.') {
+            if (res.data.message === 'Logged in.') {
                 this.props.history.push('/profile')
             }
 
