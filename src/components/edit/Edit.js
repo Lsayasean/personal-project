@@ -11,6 +11,7 @@ class Edit extends Component {
         super(props)
 
         this.state = {
+            name: this.props.user.name,
             image: this.props.user.image,
             background: this.props.user.backgroundImage,
             bio: this.props.user.bio,
@@ -39,12 +40,13 @@ class Edit extends Component {
 
 
     async updateInfo() {
-        let { bio, image, background } = this.state;
+        let { name, bio, image, background } = this.state;
         console.log(image.length)
-        if ( !bio || !image || !background) {
+        if (!name || !bio || !image || !background) {
             this.setState({ alert: 'Please fill out all fields' })
         } else {
             let res = await axios.put('/edit-profile', {
+                name,
                 image,
                 bio,
                 background
@@ -57,7 +59,7 @@ class Edit extends Component {
 
 
     render() {
-        let { name, image, bio, background } = this.state;
+        let { image, bio, background } = this.state;
         console.log(this.props)
         return (
             <div className='edit-container'>
