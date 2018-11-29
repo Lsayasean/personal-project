@@ -9,11 +9,7 @@ const {SECRET, SERVER_PORT, CONNECTiON_STRING, NODE_ENV} = process.env;
 
 const app = express();
 app.use(express.json())
-<<<<<<< HEAD
-// app.use( express.static( `${__dirname}/../build` ) );
-=======
 app.use( express.static( `${__dirname}/../build` ) );
->>>>>>> master
 massive(CONNECTiON_STRING).then(db => app.set('db', db))
 app.use(session({
     secret: SECRET,
