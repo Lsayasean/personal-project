@@ -11,7 +11,6 @@ class Edit extends Component {
         super(props)
 
         this.state = {
-            name: this.props.user.name,
             image: this.props.user.image,
             background: this.props.user.backgroundImage,
             bio: this.props.user.bio,
@@ -40,13 +39,12 @@ class Edit extends Component {
 
 
     async updateInfo() {
-        let { name, bio, image, background } = this.state;
+        let { bio, image, background } = this.state;
         console.log(image.length)
-        if (!name || !bio || !image || !background) {
+        if ( !bio || !image || !background) {
             this.setState({ alert: 'Please fill out all fields' })
         } else {
             let res = await axios.put('/edit-profile', {
-                name,
                 image,
                 bio,
                 background
@@ -67,11 +65,6 @@ class Edit extends Component {
                     <SweetAlert title={this.state.alert} onConfirm={() => this.setState({ alert: '' })} />
                 }
                 <form className='edit-form'>
-                    <div>
-                        <label>Name:</label>
-                        <br />
-                        <input className='edit-input' value={name} placeholder='name' type='text' onChange={(e) => this.updateName(e)} />
-                    </div>
                     <div>
                         <label>Profile-Image:</label>
                         <br />
