@@ -15,7 +15,7 @@ class Message extends Component {
             isLoading: true
         };
 
-        this.socket = io('localhost:4000');
+        this.socket = io();
 
         this.sendMessage = () => {
             this.socket.emit('SEND_MESSAGE', {
