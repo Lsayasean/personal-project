@@ -23,7 +23,8 @@ class Home extends Component {
         this.setState({ password: e.target.value })
     }
 
-    async login() {
+    async login(e) {
+        e.preventDefault()
         let { email, password } = this.state;
         if (!this.state.email || !this.state.password) {
             this.setState({ alert: 'Please fill out all fields' })
@@ -32,7 +33,9 @@ class Home extends Component {
                 email: email,
                 password: password
             })
-            if (res.data.message === 'Logged in.') {
+            if(res.data.message === 'Incorrect password.' ){
+                this.setState({alert: 'Incorrect password.' })
+            }else if (res.data.message === 'Logged in.') {
                 this.props.history.push('/profile')
             }
 
@@ -45,7 +48,7 @@ class Home extends Component {
                 {this.state.alert &&
                     <SweetAlert title={this.state.alert} onConfirm={() => this.setState({ alert: '' })} />
                 }
-                <form className='login-form'>
+                <form className='login-form' onSubmit={() => this.login()}>
                     <div>
                         <label>Email:</label>
                         <br />
@@ -56,7 +59,7 @@ class Home extends Component {
                         <br />
                         <input className='form-input' placeholder='Password' type='password' onChange={(e) => this.updatePass(e)} />
                     </div>
-                    <button className='form-BTN' type='button' onClick={() => this.login()}>Login</button>
+                    <button className='form-BTN' type='submit' >Login</button>
                     <Link to='/register'><button className='form-BTN'>Register</button></Link>
                 </form>
             </div>

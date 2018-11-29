@@ -44,7 +44,8 @@ class Register extends Component {
     }
 
 
-    async register() {
+    async register(e) {
+        e.preventDefault()
         let { email, password, name, bio, image, background } = this.state;
         if (!email || !password || !name || !bio || !image || !background) {
             this.setState({ alert: "Please fill out all fields" })
@@ -73,7 +74,7 @@ class Register extends Component {
                 {this.state.alert &&
                     <SweetAlert title = {this.state.alert} onConfirm={() => this.setState({alert: ''})} />
                 }
-                <form className='register-form'>
+                <form className='register-form' onSubmit={(e) => this.register(e)}>
                     <div>
                         <label>Name:</label>
                         <br />
@@ -104,7 +105,7 @@ class Register extends Component {
                         <br />
                         <input className='form-inputs' placeholder='Type of gamer' type='text' onChange={(e) => this.updateBio(e)} />
                     </div>
-                    <button className='form-BTNS' type='button' onClick={() => this.register()}>Register</button>
+                    <button className='form-BTNS' type='submit'>Register</button>
                     <Link to='/'><button className='form-BTNS' type='button'>Back</button></Link>
                 </form>
             </div>
