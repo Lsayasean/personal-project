@@ -54,7 +54,7 @@ module.exports = {
     },
     logout(req, res) {
         req.session.destroy();
-        res.redirect('https://firstpersonqt.com/')
+        res.redirect('/')
     },
     async getGames(req, res) {
         let db = req.app.get('db')
