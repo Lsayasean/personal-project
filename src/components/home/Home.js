@@ -46,7 +46,7 @@ class Home extends Component {
                 {this.state.alert &&
                     <SweetAlert title={this.state.alert} onConfirm={() => this.setState({ alert: '' })} />
                 }
-                <form className='login-form' onSubmit={() => this.login()}>
+                <form className='login-form' onSubmit={(e) => this.login(e)}>
                     <div>
                         <label>Email:</label>
                         <br />
