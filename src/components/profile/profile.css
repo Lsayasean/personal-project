@@ -60,10 +60,11 @@
 }
 
 .profile-name {
-    font-size: 70px;
+    font-size: 50px;
+    margin-bottom: 20px;
 }
 .profile-bio {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 
@@ -93,12 +94,12 @@
     border-radius: 25px;
 }
 
-    .button-margin {
+.button-margin {
         margin-top: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
+}
 
 .btn-g {
     margin-top: 10px;
@@ -134,10 +135,11 @@
         border-radius: 40px;
     }
     .profile-name {
-        font-size: 120px;
+        font-size: 100px;
+        margin-bottom: 20px;
     }
     .profile-bio {
-        font-size: 60px;
+        font-size: 50px;
     }  
     .game-lists{
         width: 90%;
@@ -204,7 +206,8 @@
     }
     
     .profile-name {
-        font-size: 40px;
+        font-size: 50px;
+        margin-bottom: 20px;
     }
     .profile-bio {
         font-size: 20px;
@@ -240,6 +243,7 @@
         background-color: white;
         color: #3f50b5;
         border-radius: 25px;
+        margin-top: 90px;
 
     }
     

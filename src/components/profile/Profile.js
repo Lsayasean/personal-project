@@ -58,7 +58,7 @@ class Profile extends Component {
 
 
         let containerStyle = !this.state.isFlipped ? {
-            height: '80vh',
+            height: '100vh',
             overflow: 'hidden'
         } : { minHeight: '100vh' }
 
