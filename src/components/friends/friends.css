@@ -115,7 +115,7 @@
 
 @media(min-width: 1000px){
     .friend-displays {
-        width: 50%;
+        width: 40%;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -135,11 +135,11 @@
         
     }
     .friend-names {
-        font-size: 80px;
+        font-size: 50px;
         margin-bottom: 20px;
     }
     .friend-bios {
-        font-size: 30px;
+        font-size: 20px;
     }
     .p {
         font-size: 50px;

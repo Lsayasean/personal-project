@@ -35,6 +35,8 @@ class Home extends Component {
             })
             if (res.data.message === 'Logged in.') {
                 this.props.history.push('/profile')
+            } else if (res.data === 'Password Incorrect') {
+                this.setState({ alert: 'Password Incorrect' })
             }
 
         }
@@ -47,6 +49,9 @@ class Home extends Component {
                     <SweetAlert title={this.state.alert} onConfirm={() => this.setState({ alert: '' })} />
                 }
                 <form className='login-form' onSubmit={(e) => this.login(e)}>
+                    <div className='title'>
+                        <h1>First Person QT</h1>
+                    </div>
                     <div>
                         <label>Email:</label>
                         <br />

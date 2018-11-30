@@ -19,7 +19,7 @@ module.exports = {
                 console.log(req.session.user)
                 res.status(200).send({ message: 'Logged in.' })
             } else {
-                res.status(401).send({ message: 'Incorrect password.' })
+                res.send('Password Incorrect')
             }
         } else {
             res.status(401).send({ message: 'Email already in use' })
