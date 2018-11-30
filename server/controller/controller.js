@@ -19,10 +19,10 @@ module.exports = {
                 console.log(req.session.user)
                 res.status(200).send({ message: 'Logged in.' })
             } else {
-                res.status(401).send('Password/Email Incorrect')
+                res.send('Password/Email Incorrect')
             }
         } else {
-            res.status(401).send('Password/Email Incorrect')
+            res.send('Password/Email Incorrect')
         }
     },
     async register(req, res) {
