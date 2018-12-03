@@ -58,10 +58,15 @@
 .friend-names {
     font-size: 60px;
     margin-bottom: 20px;
+    text-align: center;
+    word-wrap: break-word;
 }
 .friend-bios {
     font-size: 30px;
+    text-align: center;
+    word-wrap: break-word;
 }
+
 .btn-flip {
     display: flex; 
     flex-direction: column;
