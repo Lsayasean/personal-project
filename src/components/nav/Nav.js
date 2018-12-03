@@ -11,7 +11,7 @@ class Nav extends Component {
                     <Link className= 'link' to='/message'><i className="far fa-comment-alt "></i></Link>  
                     <Link className= 'link' to='/profile'><i className="fas fa-home"></i></Link>  
                     <Link className= 'link' to='/friends'><i className="fas fa-user-friends"></i></Link>  
-                    <Link className= 'link' to='/games-list'><i className="fas fa-search"></i></Link>  
+                    <Link className= 'link' to='/games-list'><i className="fas fa-gamepad"></i></Link>  
                     <Link className= 'link' to='/setting'><i className="fas fa-cog"></i></Link>  
                 </div>
             )
