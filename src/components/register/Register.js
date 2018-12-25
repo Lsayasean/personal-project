@@ -12,9 +12,9 @@ class Register extends Component {
             name: '',
             email: '',
             password: '',
-            image: '',
+            image: 'https://vignette.wikia.nocookie.net/marsargo/images/5/52/Unknown.jpg/revision/latest?cb=20170904102656',
             bio: '',
-            background: '',
+            background: 'https://i.pinimg.com/originals/ad/47/af/ad47af29ad50df1477b9413f9d521db0.jpg',
             alert: ''
         }
     }
@@ -79,16 +79,6 @@ class Register extends Component {
                         <label>Name:</label>
                         <br />
                         <input className='form-inputs' placeholder='name' type='text' onChange={(e) => this.updateName(e)} />
-                    </div>
-                    <div>
-                        <label>Profile-Image:</label>
-                        <br />
-                        <input className='form-inputs' placeholder='image-URL' type='text' onChange={(e) => this.updateImage(e)} />
-                    </div>
-                    <div>
-                        <label>Background:</label>
-                        <br />
-                        <input className='form-inputs' placeholder='background-URL' type='text' onChange={(e) => this.updateBackground(e)} />
                     </div>
                     <div>
                         <label>Email::</label>

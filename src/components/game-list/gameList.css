@@ -47,7 +47,7 @@
     transition-duration: 0.4s;
     text-decoration: none;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-top: 20px;
 }
 
@@ -79,8 +79,9 @@
         margin-top: 10px;
         border-radius: 100px;
         border: 2px solid #3f50b5;
-        box-shadow: 10px 5px 10px gray;
-        color: #3f50b5;
+        /* box-shadow: 10px 5px 10px gray; */
+        background-color: #3f50b5;
+        color: white
     }
 
 
@@ -99,7 +100,7 @@
         transition-duration: 0.4s;
         text-decoration: none;
         overflow: hidden;
-        border-radius: 20px;
+        border-radius: 5px;
     }
     .list-mini-container{
         width: 60%
@@ -112,7 +113,8 @@
         margin-top: 10px;
         border-radius: 100px;
         border: 2px solid #3f50b5;
-        box-shadow: 10px 5px 10px gray;
-        color: #3f50b5;
+        /* box-shadow: 10px 5px 10px gray; */
+        background-color: #3f50b5;
+        color: white
     }
 }

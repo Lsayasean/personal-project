@@ -16,7 +16,12 @@ class Nav extends Component {
                 </div>
             )
         } else {
-            return null;
+            return (
+                <div className='nav-main2'>
+                    <h1 className='nav-title'>First Person QT</h1>
+                    <h3 className='nav-title'> Social media for gamers</h3>
+                </div>
+            )
         }
     }
 }
