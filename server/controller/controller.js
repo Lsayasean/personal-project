@@ -26,14 +26,14 @@ module.exports = {
         }
     },
     async register(req, res) {
-        let { email, password , name , bio, image, background} = req.body;
+        let { email, password , name , bio,} = req.body;
         let db = req.app.get('db')
         let [foundUser] = await db.find_profile(email);
         if (foundUser) return res.status(200).send({ message: 'Email already in use' })
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(password, salt)
         // console.log(hash.length)
-        let [createUser] = await db.create_user([name, hash, email, bio, image, background])
+        let [createUser] = await db.create_user([name, hash, email, bio])
         req.session.user = {
             id: createUser.profile_id,
             name: createUser.name,
@@ -49,7 +49,7 @@ module.exports = {
         if(req.session.user){
             res.status(200).send(req.session.user)
         } else {
-            res.sendStatus(401)
+            res.sendStatus(401)``
         }
     },
     logout(req, res) {
